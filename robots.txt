@@ -1,0 +1,28 @@
+# BRIXEL STUDIO — Robots Policy
+# https://brixel.studio
+
+User-agent: *
+Allow: /
+Allow: /work/
+Disallow: /p/
+
+# Block AI training crawlers from proposals
+User-agent: GPTBot
+Disallow: /p/
+
+User-agent: ChatGPT-User
+Disallow: /p/
+
+User-agent: CCBot
+Disallow: /p/
+
+User-agent: Google-Extended
+Disallow: /p/
+
+User-agent: anthropic-ai
+Disallow: /p/
+
+User-agent: ClaudeBot
+Disallow: /p/
+
+Sitemap: https://brixel.studio/sitemap.xml
