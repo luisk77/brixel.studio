@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRIXEL STUDIO — Architecture × Digital Products</title>
+<meta name="description" content="Brixel Studio — Architecture, interior design, and digital products by Luis Carlos Álvarez. Medellín, Colombia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1A1A1A;
+  --bg-hover: #222222;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-tertiary: #666666;
+  --text-muted: #444444;
+  --accent-gold: #C9A84C;
+  --accent-gold-dim: #8B7635;
+  --accent-gold-bright: #E0C068;
+  --border-subtle: #1E1E1E;
+  --border-medium: #333333;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter Tight', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* === GRAIN OVERLAY === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* === STICKY NAV === */
+.nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.nav-logo span { color: var(--accent-gold); }
+
+.nav-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 20px 24px; }
+  .nav-meta { display: none; }
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--accent-gold);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(64px, 14vw, 220px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.hero-title .accent {
+  color: var(--accent-gold);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin-bottom: 64px;
+  line-height: 1.5;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+}
+
+.hero-meta div span {
+  display: block;
+  color: var(--text-primary);
+  font-size: 13px;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 100px 24px 60px; }
+  .hero-meta { gap: 32px; }
+}
+
+/* === SECTION === */
+.section {
+  padding: 120px 48px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  flex: 1;
+  min-width: 280px;
+}
+
+.section-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 80px 24px; }
+  .section-header { margin-bottom: 48px; }
+}
+
+/* === WORK GRID === */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.work-item {
+  background: var(--bg-primary);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item:hover {
+  background: var(--bg-secondary);
+}
+
+.work-item-empty {
+  background: var(--bg-primary);
+  border: 1px dashed var(--border-medium);
+}
+
+.work-item-empty:hover {
+  background: var(--bg-primary);
+}
+
+.work-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.work-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--text-tertiary);
+  border-radius: 50%;
+}
+
+.work-status.live::before {
+  background: var(--accent-gold);
+  box-shadow: 0 0 12px var(--accent-gold);
+}
+
+.work-status.live { color: var(--accent-gold); }
+
+.work-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.work-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+}
+
+.work-arrow {
+  color: var(--accent-gold);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-arrow {
+  transform: translateX(8px);
+}
+
+.work-empty-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin: auto;
+}
+
+/* === CAPABILITIES === */
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.cap {
+  background: var(--bg-primary);
+  padding: 56px 48px;
+}
+
+.cap-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.cap-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.cap-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.cap-list {
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+}
+
+.cap-list li {
+  padding: 8px 0;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cap-list li::before {
+  content: '+';
+  color: var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+  .capabilities { grid-template-columns: 1fr; }
+  .cap { padding: 40px 32px; }
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 120px 48px 64px;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+  color: var(--text-primary);
+}
+
+.footer-mark span { color: var(--accent-gold); font-style: italic; font-weight: 600; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-col-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.footer-col-value {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.footer-bottom {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 80px 24px 48px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+/* === SCROLL ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.fade-in:nth-child(2) { animation-delay: 0.1s; }
+.fade-in:nth-child(3) { animation-delay: 0.2s; }
+.fade-in:nth-child(4) { animation-delay: 0.3s; }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">BRIXEL<span>.</span>STUDIO</div>
+  <div class="nav-meta">MEDELLÍN — COL · EST. 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow fade-in">ARCHITECTURE × DIGITAL PRODUCTS</div>
+  <h1 class="hero-title fade-in">
+    BUILT<br>
+    <span class="accent">in pixels.</span>
+  </h1>
+  <p class="hero-subtitle fade-in">
+    Independent studio at the intersection of architecture, interior design, and digital products. Twenty-five years between brick and pixel.
+  </p>
+  <div class="hero-meta fade-in">
+    <div>LOCATION<span>Medellín, Colombia</span></div>
+    <div>FOUNDER<span>Luis Carlos Álvarez</span></div>
+    <div>STATUS<span>Open for projects</span></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-header">
+    <div>
+      <div class="section-number">01 — SELECTED WORK</div>
+      <h2 class="section-title">Projects &<br>proposals.</h2>
+    </div>
+    <div class="section-meta">UPDATED CONTINUOUSLY</div>
+  </div>
+
+  <div class="work-grid">
+
+    <!-- Placeholder card 1 -->
+    <div class="work-item work-item-empty">
+      <div class="work-empty-text">
+        ◇<br><br>
+        Coming soon
+      </div>
+    </div>
+
+    <!-- Placeholder card 2 -->
+    <div class="work-item work-item-empty">
+      <div class="work-empty-text">
+        ◇<br><br>
+        Coming soon
+      </div>
+    </div>
+
+    <!-- Placeholder card 3 -->
+    <div class="work-item work-item-empty">
+      <div class="work-empty-text">
+        ◇<br><br>
+        Coming soon
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section" id="capabilities">
+  <div class="section-header">
+    <div>
+      <div class="section-number">02 — CAPABILITIES</div>
+      <h2 class="section-title">What we<br>build.</h2>
+    </div>
+  </div>
+
+  <div class="capabilities">
+
+    <div class="cap">
+      <div class="cap-number">A / PHYSICAL</div>
+      <h3 class="cap-title">Architecture<br>& Interiors</h3>
+      <p class="cap-desc">
+        High-end interior design, construction supervision, and photorealistic visualization for residential and commercial projects.
+      </p>
+      <ul class="cap-list">
+        <li>Interior design</li>
+        <li>Construction supervision</li>
+        <li>3D visualization · 3ds Max + Corona</li>
+        <li>Hybrid AI render workflow</li>
+      </ul>
+    </div>
+
+    <div class="cap">
+      <div class="cap-number">B / DIGITAL</div>
+      <h3 class="cap-title">Software<br>& Products</h3>
+      <p class="cap-desc">
+        Custom apps, automation tools, and SaaS products. From logistics optimization to point-of-sale systems.
+      </p>
+      <ul class="cap-list">
+        <li>Web & mobile apps</li>
+        <li>Logistics & POS systems</li>
+        <li>AI integration · workflow automation</li>
+        <li>Brand & product design</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-mark">
+    BRIXEL<span>.</span>
+  </div>
+
+  <div class="footer-grid">
+    <div>
+      <div class="footer-col-label">CONTACT</div>
+      <div class="footer-col-value">+57 300 651 6374</div>
+    </div>
+    <div>
+      <div class="footer-col-label">LOCATION</div>
+      <div class="footer-col-value">Medellín<br>Colombia</div>
+    </div>
+    <div>
+      <div class="footer-col-label">PRINCIPAL</div>
+      <div class="footer-col-value">Luis Carlos<br>Álvarez</div>
+    </div>
+    <div>
+      <div class="footer-col-label">DOMAIN</div>
+      <div class="footer-col-value">brixel.studio</div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 BRIXEL STUDIO</div>
+    <div>ALL RIGHTS RESERVED</div>
+  </div>
+</footer>
+
+</body>
+</html>
