@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cotización Diseño Interior — Carlos Andrés Gómez · Brixel Studio</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#111111; --bg3:#151515;
+  --tx:#FFFFFF; --tx2:#A0A0A0; --tx3:#666666; --tx4:#2A2A2A;
+  --gold:#C9A84C; --gold-dim:#8B7635;
+  --bd:#1E1E1E; --bd2:#333333;
+  --s1:8px; --s2:16px; --s3:32px; --s4:48px; --s5:64px; --s6:96px; --s7:140px;
+  --max:1080px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  overflow-x:hidden;
+  background:var(--bg);color:var(--tx2);
+  font-family:'Inter Tight',sans-serif;font-weight:300;font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+::selection{background:var(--gold);color:#0A0A0A}
+
+/* grain */
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;height:64px;
+  background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:space-between;padding:0 var(--s3);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+.nav-brand svg{height:15px;width:auto}
+.nav-links{display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tx3);text-decoration:none;padding:22px 13px;
+  transition:color .25s ease;white-space:nowrap;
+}
+.nav-links a.active,.nav-links a:hover{color:var(--tx)}
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);
+  border:1px solid var(--gold-dim);padding:5px 11px;letter-spacing:.08em;white-space:nowrap;
+}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--s3);position:relative;z-index:2}
+section{padding:var(--s7) 0;border-bottom:1px solid var(--bd)}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;
+  padding:var(--s6) 0;border-bottom:1px solid var(--bd);position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-18%;top:-28%;width:80vw;height:80vw;max-width:900px;max-height:900px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(201,168,76,.14) 0%,rgba(201,168,76,.04) 42%,rgba(10,10,10,0) 68%);
+}
+.eyebrow{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:var(--s4);
+}
+h1.hero-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(48px,9vw,104px);line-height:.95;letter-spacing:-.025em;color:var(--tx);
+}
+h1.hero-title .g{color:var(--gold)}
+.rule{width:64px;height:2px;background:var(--gold);margin:var(--s4) 0}
+.hero-sub{font-size:clamp(17px,2.2vw,21px);line-height:1.6;color:var(--tx2);max-width:560px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:var(--s5);margin-top:var(--s6)}
+.hm-k{font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--tx3);margin-bottom:6px}
+.hm-v{font-family:'Inter Tight',sans-serif;font-weight:500;font-size:16px;color:var(--tx)}
+
+/* ---------- SECTION HEADERS ---------- */
+.snum{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:var(--s3);
+}
+h2{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(32px,5.4vw,58px);line-height:1.02;letter-spacing:-.025em;color:var(--tx);
+  margin-bottom:var(--s3);
+}
+h2 .g{color:var(--gold)}
+.lede{font-size:17px;line-height:1.7;color:var(--tx2);max-width:640px}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--s3);margin-top:var(--s5)}
+.kpi{padding-left:var(--s2);border-left:2px solid var(--gold)}
+.kpi .v{font-family:'Syne',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--tx)}
+.kpi .v small{font-size:20px;font-weight:600}
+.kpi .k{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:var(--s2) 0 6px}
+.kpi .d{font-size:14px;line-height:1.55;color:var(--tx3)}
+
+/* ---------- CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s5)}
+.card{border:1px solid var(--bd);background:var(--bg2);padding:var(--s4) var(--s3);transition:border-color .3s ease}
+.card:hover{border-color:var(--gold-dim)}
+.card .ph{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s2)}
+.card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:var(--tx);letter-spacing:-.01em;margin-bottom:var(--s3);line-height:1.25}
+.card ul{list-style:none}
+.card li{position:relative;padding-left:20px;font-size:14px;line-height:1.6;color:var(--tx2);margin-bottom:10px}
+.card li::before{content:'—';position:absolute;left:0;color:var(--gold-dim)}
+
+/* ---------- LISTS ---------- */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s5);margin-top:var(--s4)}
+.dl{list-style:none}
+.dl li{position:relative;padding-left:22px;font-size:16px;line-height:1.55;color:var(--tx3);padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--bd)}
+.dl li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+.dl strong{color:var(--tx);font-weight:500}
+
+/* ---------- TABLE ---------- */
+.tbl-wrap{overflow-x:auto;margin-top:var(--s5)}
+table{width:100%;border-collapse:collapse;min-width:600px}
+thead th{background:var(--gold);color:#0A0A0A;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:14px 20px;text-align:left}
+thead th.r{text-align:right}
+tbody td{padding:15px 20px;border-bottom:1px solid var(--bd);font-size:15px;color:var(--tx2)}
+tbody td.r{text-align:right;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--tx)}
+tbody td.name{color:var(--tx)}
+tbody tr:nth-child(even){background:var(--bg2)}
+tr.total td{background:#181510;color:var(--gold);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;border-bottom:2px solid var(--gold);border-top:1px solid var(--gold-dim)}
+tr.total td.r{font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--gold)}
+
+/* ---------- DISCOUNT ---------- */
+.disc{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--bd);margin-top:var(--s3)}
+.disc>div{padding:var(--s3);border-right:1px solid var(--bd)}
+.disc>div:last-child{border-right:none;background:#181510}
+.disc .k{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tx3);margin-bottom:12px}
+.disc .v{font-family:'JetBrains Mono',monospace;font-size:clamp(17px,4.6vw,21px);color:var(--tx2);line-height:1.2}
+.disc .v.strike{text-decoration:line-through;text-decoration-color:var(--gold);color:var(--tx3)}
+.disc .u{font-family:'JetBrains Mono',monospace;font-size:11px;color:#4A4A4A;margin-top:8px}
+.disc>div:last-child .k{color:var(--gold)}
+.disc>div:last-child .v{color:var(--gold)}
+.disc>div:last-child .u{color:var(--gold-dim)}
+
+/* ---------- BARS ---------- */
+.bars{margin-top:var(--s5)}
+.bar-row{display:grid;grid-template-columns:200px 1fr 120px;align-items:center;gap:var(--s2);margin-bottom:18px}
+.bar-lbl{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;color:var(--tx3);text-align:right}
+.bar-lbl.hi{color:var(--gold);font-weight:600}
+.bar-track{height:30px;background:var(--bg2);border:1px solid var(--bd);overflow:hidden}
+.bar-fill{display:block;height:100%;background:var(--bd2);width:0;transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+.bar-fill.hi{background:var(--gold)}
+.bar-val{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--tx3)}
+.bar-val.hi{color:var(--gold)}
+.src{font-family:'JetBrains Mono',monospace;font-size:11px;overflow-wrap:anywhere;color:#3A3A3A;margin-top:var(--s3);line-height:1.7;max-width:760px}
+.src a{color:#4A4A4A}
+
+/* ---------- PAYMENTS ---------- */
+.pay{margin-top:var(--s5)}
+.pay-row{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--bd)}
+.pay-p{font-family:'Syne',sans-serif;font-weight:700;font-size:32px;color:var(--gold);line-height:1}
+.pay-d b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:var(--tx);margin-bottom:4px}
+.pay-d span{font-size:14px;color:var(--tx3)}
+.pay-a{font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--tx)}
+
+/* ---------- TIMELINE ---------- */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);margin-top:var(--s5)}
+.tl-i{padding-right:var(--s3);border-top:1px solid var(--bd2);padding-top:0}
+.tl-i:last-child{border-top-color:var(--gold)}
+.tl-dot{display:block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin:-5px 0 var(--s3)}
+.tl-w{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.tl-t{font-size:14px;line-height:1.6;color:var(--tx3)}
+
+/* ---------- NOTES ---------- */
+.notes{list-style:none;margin-top:var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s3) var(--s5)}
+.notes li{position:relative;padding-left:22px;font-size:15px;line-height:1.6;color:var(--tx3)}
+.notes li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+.callout{border-left:2px solid var(--gold);background:var(--bg2);padding:var(--s3);margin-top:var(--s4)}
+.callout p{font-size:15px;color:var(--tx2)}
+.callout b{color:var(--tx);font-weight:500}
+
+/* ---------- FOOTER ---------- */
+footer{padding:var(--s7) 0 var(--s5);position:relative;overflow:hidden}
+footer::after{
+  content:'';position:absolute;left:-10%;bottom:-40%;width:70vw;height:70vw;max-width:800px;max-height:800px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(201,168,76,.10) 0%,rgba(201,168,76,.03) 45%,rgba(10,10,10,0) 70%);
+}
+.foot-mark{width:min(100%,760px);margin-bottom:var(--s5)}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--s3);margin-bottom:var(--s6)}
+.fg-k{font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+.fg-v{font-family:'Inter Tight',sans-serif;font-weight:500;font-size:16px;color:var(--tx)}
+.fg-v a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--gold-dim)}
+.fg-v a:hover{color:var(--gold)}
+.sign{display:grid;grid-template-columns:2fr 1fr;gap:var(--s5);margin-top:var(--s5)}
+.sign div{border-top:1px solid var(--bd2);padding-top:12px;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tx3)}
+.colophon{overflow-wrap:anywhere;margin-top:var(--s6);padding-top:var(--s3);border-top:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:11px;color:#3A3A3A;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- ANIMATION ---------- */
+.anim{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.anim.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* ---------- RESPONSIVE ---------- */
+/* ---------- TABLA RESPONSIVE (móvil) ---------- */
+@media (max-width:700px){
+  .tbl-wrap{overflow:visible;margin-top:var(--s4)}
+  table{min-width:0;display:block;width:100%}
+  thead{display:none}
+  tbody{display:block}
+  tbody tr,tbody tr:nth-child(even){display:block;background:var(--bg2);border:1px solid var(--bd);margin-bottom:12px}
+  tbody td{
+    display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+    padding:11px 16px;border-bottom:1px solid var(--bd);text-align:right;font-size:14px;
+  }
+  tbody td:last-child{border-bottom:none}
+  tbody td::before{
+    content:attr(data-l);flex:0 0 auto;text-align:left;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--tx3);
+  }
+  tbody td.name{
+    display:block;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:15px;color:var(--tx);padding-top:14px;
+  }
+  tbody td.name::before{display:block;margin-bottom:5px}
+  tbody td.r{font-size:15px}
+  tr.total td,tr.total td:last-child{background:#181510;border-bottom:1px solid var(--bd)}
+  tr.total{border-color:var(--gold)}
+  tr.total td[colspan]{display:block;text-align:left;font-size:13px}
+  tr.total td[colspan]::before{display:none}
+  tr.total td.r{font-size:19px;border-bottom:none}
+}
+@media (max-width:1100px) and (min-width:641px){
+  .nav-links a{padding:22px 9px;font-size:10px;letter-spacing:.1em}
+}
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr 1fr}
+  .cols2,.notes{grid-template-columns:1fr}
+  .disc{grid-template-columns:1fr}
+  .disc>div{border-right:none;border-bottom:1px solid var(--bd)}
+  .bar-row{grid-template-columns:1fr;gap:6px}
+  .bar-lbl{text-align:left}
+}
+@media (max-width:640px){
+  h1.hero-title,h2{overflow-wrap:break-word;word-break:normal}
+  h2{font-size:clamp(26px,7.2vw,42px)}
+  .pay-row{align-items:start}
+  .pay-p{font-size:26px}
+  .nav{padding:0 var(--s2);height:56px}
+  .nav-links,.badge{display:none}
+  .wrap{padding:0 20px}
+  section{padding:var(--s6) 0}
+  .tl{grid-template-columns:1fr}
+  .pay-row{grid-template-columns:62px 1fr;gap:14px}
+  .pay-a{grid-column:2;font-size:15px}
+  .sign{grid-template-columns:1fr}
+}
+
+/* ---------- PRINT ---------- */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body{background:#0A0A0A!important}
+  body::before{display:none}
+  .nav{display:none!important}
+  .anim{opacity:1!important;transform:none!important}
+  section{page-break-inside:avoid;padding:34px 0}
+  .hero{min-height:auto;padding:40px 0}
+  @page{size:A4;margin:14mm}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="nav-brand" aria-label="Brixel Studio">
+    <svg viewBox="0 0 1586.49 128.91" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#fff">
+      <path d="M256.81,49.97c-3.54,2.93-6.52,6.08-8.95,9.45-2.43,3.37-4.37,6.63-5.8,9.78-.24.54-.45,1.04-.66,1.56v-28.16h-39.78v81.22h39.78v-39.7c1.98-1.36,4.58-2.74,7.79-4.14,4.2-1.82,9.28-3.4,15.25-4.72,5.97-1.33,12.54-1.99,19.72-1.99v-33.15c-5.53,0-10.58.91-15.17,2.73-4.59,1.82-8.65,4.2-12.18,7.13Z"/>
+      <rect x="297.74" y="42.6" width="39.78" height="81.22"/><rect x="296.58" width="42.1" height="24.86"/>
+      <polygon points="505.26 42.6 456.53 42.6 428.62 64.7 398.19 42.6 349.46 42.6 404.3 83.29 349.46 123.81 398.19 123.81 427.13 100.05 459.85 123.81 508.58 123.81 451.37 81.4 505.26 42.6"/>
+      <path d="M655.26,59.09c-5.08-6.68-12.99-11.52-23.7-14.5-10.72-2.98-24.48-4.48-41.27-4.48s-31.72,1.38-43.76,4.14c-12.05,2.76-21.24,7.32-27.6,13.67-6.35,6.36-9.53,14.84-9.53,25.44s3.26,19.23,9.78,25.53c6.52,6.3,15.83,10.77,27.93,13.43,12.1,2.65,26.49,3.98,43.18,3.98,15.8,0,28.81-1.3,39.03-3.9,10.22-2.59,18.01-6.27,23.37-11.02,5.36-4.75,8.54-10.33,9.53-16.74h-39.12c-1.22,2.43-4.89,4.31-11.02,5.63-6.13,1.33-13.95,1.99-23.45,1.99s-16.49-.75-21.96-2.24c-5.47-1.49-9.5-3.45-12.1-5.88-2.6-2.43-4.17-5.08-4.72-7.96h112.71c.22-11.38-2.21-20.41-7.29-27.1ZM551.01,75.58c1.1-2.54,4.72-5.08,10.86-7.62,6.13-2.54,15.05-3.81,26.77-3.81s20.61,1.19,26.02,3.56c5.41,2.38,8.51,5,9.28,7.87h-72.93Z"/>
+      <rect x="678.3" y="9.45" width="39.78" height="114.37"/></g>
+      <polygon fill="#c9a84c" points="729.45 123.78 757.93 123.78 763.83 98.76 735.35 98.76 729.45 123.78"/>
+      <g fill="#fff">
+      <path d="M890.27,80.89c-4.92-1.44-10.44-2.38-16.57-2.82-6.13-.44-12.41-.66-18.81-.66-9.28,0-16.33-.17-21.13-.5-4.81-.33-8.07-.91-9.78-1.74-1.72-.83-2.57-2.07-2.57-3.73,0-2.54,1.74-4.39,5.22-5.55s9.09-1.74,16.82-1.74c8.18,0,13.95.55,17.32,1.66,3.37,1.11,5.66,3.09,6.88,5.97h35.64c.11-5.97-1.93-11.32-6.13-16.08-4.2-4.75-10.72-8.54-19.56-11.35-8.84-2.82-20.22-4.23-34.15-4.23-8.4,0-16.44.44-24.12,1.33-7.68.89-14.45,2.35-20.31,4.39-5.86,2.05-10.5,4.86-13.92,8.45-3.43,3.59-5.14,8.04-5.14,13.34,0,4.31,1.16,7.9,3.48,10.77,2.32,2.88,5.69,5.11,10.11,6.71,4.42,1.6,9.81,2.76,16.16,3.48,6.35.72,13.56,1.08,21.63,1.08,8.51,0,15.19.08,20.06.25,4.86.17,8.31.61,10.36,1.33,2.04.72,3.07,2.02,3.07,3.9,0,1.22-.47,2.38-1.41,3.48-.94,1.11-2.93,1.99-5.97,2.65-3.04.66-7.71.99-14.01.99-8.18,0-14.45-.55-18.81-1.66-4.37-1.1-7.32-3.09-8.87-5.97h-36.63c-.22,2.21.08,4.72.91,7.54.83,2.82,2.54,5.64,5.14,8.45,2.59,2.82,6.32,5.42,11.19,7.79,4.86,2.38,11.13,4.28,18.81,5.72,7.68,1.44,17.1,2.16,28.26,2.16,12.82,0,23.92-.89,33.32-2.65,9.39-1.77,16.66-4.61,21.8-8.54,5.14-3.92,7.71-9.03,7.71-15.33,0-5.19-1.44-9.28-4.31-12.27-2.87-2.98-6.77-5.19-11.68-6.63Z"/>
+      <polygon points="984 17.74 944.22 17.74 944.22 42.6 915.38 42.6 915.38 67.46 944.22 67.46 944.22 123.81 984 123.81 984 67.46 1012.84 67.46 1012.84 42.6 984 42.6 984 17.74"/>
+      <path d="M1134.33,83.55c-2.15,2.03-4.88,4.12-8.2,6.28-4.26,2.76-9.17,5.11-14.75,7.04-5.58,1.93-11.63,2.9-18.15,2.9-6.96,0-12.65-.64-17.07-1.91-4.42-1.27-7.65-3.56-9.7-6.88-2.05-3.31-3.07-8.01-3.07-14.09v-34.31h-39.78v38.45c0,8.73,1.43,16,4.31,21.8,2.87,5.8,6.85,10.42,11.94,13.84,5.08,3.43,10.88,5.88,17.4,7.38,6.52,1.49,13.43,2.24,20.72,2.24s13.92-.89,19.89-2.65c5.97-1.77,11.27-4.06,15.91-6.88,4.64-2.82,8.56-5.88,11.77-9.2,3.2-3.31,5.72-6.52,7.54-9.61.46-.79.88-1.55,1.24-2.28v28.14h39.78V42.6h-39.78v40.95Z"/>
+      <path d="M1310.52,67.91c-.36-.77-.74-1.52-1.16-2.27-2.98-5.3-7.29-9.86-12.93-13.67-5.63-3.81-12.43-6.74-20.39-8.79-7.96-2.04-16.91-3.07-26.85-3.07-11.93,0-22.54,1.6-31.82,4.81-9.28,3.21-16.6,8.01-21.96,14.42-5.36,6.41-8.04,14.37-8.04,23.87s2.68,16.8,8.04,23.2c5.36,6.41,12.68,11.3,21.96,14.67,9.28,3.37,19.89,5.06,31.82,5.06,9.94,0,18.9-1.02,26.85-3.07s14.75-4.97,20.39-8.78c5.64-3.81,9.94-8.34,12.93-13.59.45-.79.85-1.6,1.24-2.42.11,4.74.36,9.15.75,13.19.55,5.69,1.05,9.81,1.49,12.35h37.46V9.45h-39.78v58.46ZM1304.14,93.98c-4.26,2.54-9.89,4.34-16.91,5.39-7.02,1.05-14.73,1.57-23.12,1.57-7.52,0-13.92-.66-19.23-1.99-5.3-1.33-9.34-3.32-12.1-5.97-2.76-2.65-4.14-5.91-4.14-9.78,0-5.97,3.09-10.41,9.28-13.34,6.19-2.93,14.92-4.39,26.19-4.39,8.4,0,16.1.5,23.12,1.49,7.02.99,12.65,2.76,16.91,5.3,4.25,2.54,6.38,6.19,6.38,10.94s-2.13,8.23-6.38,10.77Z"/>
+      <rect x="1372.68" width="42.1" height="24.86"/><rect x="1373.84" y="42.6" width="39.78" height="81.22"/>
+      <path d="M1577.87,58.43c-5.75-6.35-14.39-10.99-25.94-13.92-11.55-2.93-26.05-4.39-43.51-4.39s-32.18,1.47-43.84,4.39c-11.66,2.93-20.39,7.57-26.19,13.92-5.8,6.35-8.7,14.67-8.7,24.94s2.9,18.56,8.7,24.86c5.8,6.3,14.53,10.88,26.19,13.76,11.66,2.87,26.27,4.31,43.84,4.31s31.96-1.44,43.51-4.31c11.55-2.87,20.19-7.46,25.94-13.76,5.74-6.3,8.62-14.59,8.62-24.86s-2.87-18.59-8.62-24.94ZM1541.58,93.9c-2.88,2.82-7.07,4.92-12.6,6.3-5.53,1.38-12.38,2.07-20.55,2.07s-15.28-.69-20.97-2.07c-5.69-1.38-9.97-3.48-12.84-6.3-2.88-2.82-4.31-6.32-4.31-10.53s1.46-7.87,4.39-10.69c2.93-2.82,7.24-4.94,12.93-6.38,5.69-1.43,12.62-2.15,20.8-2.15s15.19.72,20.72,2.15c5.52,1.44,9.7,3.59,12.51,6.47,2.82,2.87,4.23,6.41,4.23,10.61s-1.44,7.71-4.31,10.53Z"/>
+      <path d="M171.24,72.17c-5.84-1.74-12.66-2.86-20.45-3.36-7.79-.49-16.25-.75-25.38-.75,0,0,21.82.16,30.76-1.4,8.95-1.56,15.82-4.32,20.63-8.31,4.81-3.98,7.21-9.71,7.21-17.17,0-11.7-5.6-19.91-16.8-24.64-11.2-4.73-28.6-7.09-52.21-7.09H0v119.47h124.14c13.39,0,25.01-1.21,34.87-3.64,9.86-2.43,17.46-6.13,22.82-11.11,5.35-4.98,8.03-11.32,8.03-19.04,0-6.35-1.64-11.32-4.93-14.93-3.29-3.61-7.85-6.28-13.69-8.03ZM45.64,44.54h70.83c6.45,0,11.11.59,13.97,1.77,2.86,1.18,4.29,3.2,4.29,6.07s-1.43,4.73-4.29,5.97c-2.86,1.25-7.52,1.87-13.97,1.87H45.64v-15.68ZM138.11,91.95c-2.86,1.25-7.52,1.87-13.97,1.87H45.64v-15.68h78.5c4.26,0,7.73.28,10.41.84,2.68.56,4.66,1.4,5.93,2.52,1.28,1.12,1.92,2.61,1.92,4.48,0,2.74-1.43,4.73-4.29,5.97Z"/>
+      </g>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="#proyecto">Proyecto</a>
+    <a href="#alcance">Alcance</a>
+    <a href="#entregables">Entregables</a>
+    <a href="#visualizacion">Visualización</a>
+    <a href="#inversion">Inversión</a>
+    <a href="#pagos">Pagos</a>
+    <a href="#cronograma">Cronograma</a>
+    <a href="#notas">Notas</a>
+  </div>
+  <span class="badge">COTIZACIÓN V1.0</span>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Cotización de diseño interior</p>
+    <h1 class="hero-title">Diseño<br><span class="g">interior</span></h1>
+    <div class="rule"></div>
+    <p class="hero-sub">Dos apartamentos de 55 m² en Medellín. Propuesta de honorarios de diseño interior integral para Carlos Andrés Gómez.</p>
+    <div class="hero-meta">
+      <div><div class="hm-k">Cliente</div><div class="hm-v">Carlos Andrés Gómez</div></div>
+      <div><div class="hm-k">Área total</div><div class="hm-v">110 m²</div></div>
+      <div><div class="hm-k">Plazo</div><div class="hm-v">5 semanas</div></div>
+      <div><div class="hm-k">Fecha</div><div class="hm-v">20 · 08 · 2026</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 01 PROYECTO ============ -->
+<section id="proyecto">
+  <div class="wrap">
+    <p class="snum anim">01 — El proyecto</p>
+    <h2 class="anim">Dos unidades,<br><span class="g">un mismo criterio de diseño</span></h2>
+    <p class="lede anim">Diseño interior integral de dos apartamentos en Medellín. El objetivo es resolver ambas unidades bajo un único lenguaje de diseño — materialidad, iluminación y mobiliario a medida — con documentación técnica suficiente para cotizar y ejecutar sin ambigüedades.</p>
+    <div class="kpis">
+      <div class="kpi anim"><div class="v">2</div><div class="k">Apartamentos</div><div class="d">Dos unidades a intervenir de forma integral.</div></div>
+      <div class="kpi anim d1"><div class="v">55<small> m²</small></div><div class="k">Por unidad</div><div class="d">Área construida de cada apartamento.</div></div>
+      <div class="kpi anim d2"><div class="v">110<small> m²</small></div><div class="k">Área total</div><div class="d">Superficie total objeto de esta propuesta.</div></div>
+      <div class="kpi anim d3"><div class="v">5</div><div class="k">Semanas</div><div class="d">Plazo de diseño desde el anticipo.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 ALCANCE ============ -->
+<section id="alcance">
+  <div class="wrap">
+    <p class="snum anim">02 — Alcance de servicios</p>
+    <h2 class="anim">Tres fases.<br>Del concepto <span class="g">al plano ejecutable.</span></h2>
+    <p class="lede anim">El diseño avanza por etapas con aprobación explícita en cada una. Nada se documenta antes de estar aprobado.</p>
+    <div class="cards">
+      <div class="card anim">
+        <p class="ph">Fase 1</p>
+        <h3>Análisis y conceptualización</h3>
+        <ul>
+          <li>Revisión de referentes conceptuales y estéticos con el cliente</li>
+          <li>Definición del concepto de diseño y atmósfera</li>
+          <li>Paleta de materiales y cromática</li>
+          <li>Análisis funcional de flujos, zonas sociales, privadas y almacenamiento</li>
+        </ul>
+      </div>
+      <div class="card anim d1">
+        <p class="ph">Fase 2</p>
+        <h3>Desarrollo del diseño</h3>
+        <ul>
+          <li>Distribución arquitectónica y zonificación de ambas unidades</li>
+          <li>Mobiliario arquitectónico a medida: cocina, closets y muebles fijos</li>
+          <li>Materialidad: pisos, muros, cielos, enchapes y acabados</li>
+          <li>Propuesta de iluminación ambiental</li>
+        </ul>
+      </div>
+      <div class="card anim d2">
+        <p class="ph">Fase 3</p>
+        <h3>Documentación técnica</h3>
+        <ul>
+          <li>Planos arquitectónicos: plantas amobladas, cortes y alzados interiores</li>
+          <li>Planos de pisos, enchapes y cielos</li>
+          <li>Especificaciones generales de mobiliario y carpintería</li>
+          <li>Planos de iluminación y puntos eléctricos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 ENTREGABLES ============ -->
+<section id="entregables">
+  <div class="wrap">
+    <p class="snum anim">03 — Entregables</p>
+    <h2 class="anim">Lo que se entrega</h2>
+    <p class="lede anim">Documentación completa para las dos unidades, en formato digital editable e imprimible.</p>
+    <div class="cols2">
+      <ul class="dl anim">
+        <li><strong>Plantas amobladas</strong> de ambos apartamentos, acotadas</li>
+        <li><strong>Cortes y alzados interiores</strong> de los espacios intervenidos</li>
+        <li><strong>Planos de pisos, enchapes y cielos</strong> con despieces</li>
+        <li><strong>Planos de mobiliario y carpintería</strong> con especificaciones generales</li>
+      </ul>
+      <ul class="dl anim d1">
+        <li><strong>Planos de iluminación</strong> y localización de puntos eléctricos</li>
+        <li><strong>Cuadro de acabados</strong> y especificaciones para cotizar con contratistas</li>
+        <li><strong>Imágenes 3D fotorrealistas</strong> de validación del diseño</li>
+        <li><strong>Dos rondas de correcciones mayores</strong> incluidas en el proceso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 VISUALIZACIÓN ============ -->
+<section id="visualizacion">
+  <div class="wrap">
+    <p class="snum anim">04 — Visualización 3D</p>
+    <h2 class="anim">Ver el proyecto<br><span class="g">antes de construirlo</span></h2>
+    <p class="lede anim">Se producen imágenes 3D fotorrealistas de cada apartamento como herramienta de validación del diseño. La cantidad de imágenes se genera según se considere necesario para tomar decisiones sobre el proyecto — no hay un tope contractual.</p>
+    <div class="cols2">
+      <ul class="dl anim">
+        <li>Iteración rápida: múltiples versiones y ángulos del mismo espacio</li>
+        <li>Calidad fotorrealista con materiales y texturas reales</li>
+      </ul>
+      <ul class="dl anim d1">
+        <li>Flexibilidad para ajustar atmósferas, paletas e iluminación durante la aprobación</li>
+        <li>Propuestas alternativas sin costo adicional de modelado</li>
+      </ul>
+    </div>
+    <div class="callout anim">
+      <p><b>Sin costo adicional.</b> Las imágenes 3D están incluidas dentro de los honorarios de diseño de esta propuesta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 INVERSIÓN ============ -->
+<section id="inversion">
+  <div class="wrap">
+    <p class="snum anim">05 — Propuesta económica</p>
+    <h2 class="anim">Honorarios</h2>
+    <p class="lede anim">Honorarios de diseño interior para 110 m², con imágenes 3D incluidas y tarifa preferencial aplicada.</p>
+
+    <div class="tbl-wrap anim">
+      <table>
+        <thead>
+          <tr><th style="width:42%">Concepto</th><th style="width:16%">Área / Cant.</th><th style="width:20%">Valor unitario</th><th class="r" style="width:22%">Valor total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name" data-l="Concepto">Diseño interior — Apartamento 1</td><td data-l="Área">55 m²</td><td data-l="Valor unitario">$70.000 / m²</td><td class="r" data-l="Valor total">$3.850.000</td></tr>
+          <tr><td class="name" data-l="Concepto">Diseño interior — Apartamento 2</td><td data-l="Área">55 m²</td><td data-l="Valor unitario">$70.000 / m²</td><td class="r" data-l="Valor total">$3.850.000</td></tr>
+          <tr><td class="name" data-l="Concepto">Imágenes 3D fotorrealistas</td><td data-l="Cantidad">Según necesidad</td><td data-l="Valor unitario">Incluido</td><td class="r" data-l="Valor total">$0</td></tr>
+          <tr class="total"><td colspan="3" data-l="">Total honorarios de diseño</td><td class="r" data-l="Total">$7.700.000 COP</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="disc anim">
+      <div><div class="k">Tarifa de lista</div><div class="v strike">$12.100.000</div><div class="u">$110.000 / m²</div></div>
+      <div><div class="k">Tarifa aplicada</div><div class="v">$7.700.000</div><div class="u">$70.000 / m²</div></div>
+      <div><div class="k">Descuento especial</div><div class="v">−$4.400.000</div><div class="u">36% sobre tarifa de lista</div></div>
+    </div>
+
+    <h2 class="anim" style="font-size:clamp(26px,3.6vw,38px);margin-top:var(--s7)">Contexto de mercado</h2>
+    <p class="lede anim">Dónde se ubica esta propuesta frente a lo que se cotiza hoy en Colombia por diseño interior.</p>
+    <div class="bars anim">
+      <div class="bar-row">
+        <span class="bar-lbl hi">Esta propuesta</span>
+        <span class="bar-track"><span class="bar-fill hi" data-w="28"></span></span>
+        <span class="bar-val hi">$70.000 / m²</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-lbl">Tarifa de lista Brixel Studio</span>
+        <span class="bar-track"><span class="bar-fill" data-w="44"></span></span>
+        <span class="bar-val">$110.000 / m²</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-lbl">Piso del mercado colombiano</span>
+        <span class="bar-track"><span class="bar-fill" data-w="40"></span></span>
+        <span class="bar-val">$100.000 / m²</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-lbl">Techo del mercado colombiano</span>
+        <span class="bar-track"><span class="bar-fill" data-w="100"></span></span>
+        <span class="bar-val">$250.000 / m²</span>
+      </div>
+    </div>
+    <p class="src">Fuente: IDS Colombia — "¿Cuánto cuesta un proyecto de diseño interior en Colombia?". Rango de referencia de $100.000 a $250.000 COP/m², o entre 8% y 15% del costo total de ejecución de la obra. Consultado en agosto de 2026.</p>
+  </div>
+</section>
+
+<!-- ============ 06 PAGOS ============ -->
+<section id="pagos">
+  <div class="wrap">
+    <p class="snum anim">06 — Forma de pago</p>
+    <h2 class="anim">Forma de pago</h2>
+    <div class="pay">
+      <div class="pay-row anim">
+        <span class="pay-p">60%</span>
+        <span class="pay-d"><b>Anticipo</b><span>Al inicio del proyecto, contra aceptación de esta propuesta.</span></span>
+        <span class="pay-a">$4.620.000</span>
+      </div>
+      <div class="pay-row anim d1">
+        <span class="pay-p">30%</span>
+        <span class="pay-d"><b>Desarrollo</b><span>Con la aprobación de las imágenes 3D y los planos generales.</span></span>
+        <span class="pay-a">$2.310.000</span>
+      </div>
+      <div class="pay-row anim d2">
+        <span class="pay-p">10%</span>
+        <span class="pay-d"><b>Contra entrega</b><span>Con la entrega de la documentación técnica final.</span></span>
+        <span class="pay-a">$770.000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 CRONOGRAMA ============ -->
+<section id="cronograma">
+  <div class="wrap">
+    <p class="snum anim">07 — Cronograma</p>
+    <h2 class="anim">Cinco semanas<br><span class="g">de diseño</span></h2>
+    <p class="lede anim">Plazo calendario contado desde el anticipo, sujeto a los tiempos de respuesta y aprobación del cliente.</p>
+    <div class="tl">
+      <div class="tl-i anim"><span class="tl-dot"></span><div class="tl-w">Semana 1</div><div class="tl-t">Análisis, referentes y definición del concepto de diseño.</div></div>
+      <div class="tl-i anim d1"><span class="tl-dot"></span><div class="tl-w">Semanas 2–3</div><div class="tl-t">Desarrollo del diseño, distribución y mobiliario a medida.</div></div>
+      <div class="tl-i anim d2"><span class="tl-dot"></span><div class="tl-w">Semana 4</div><div class="tl-t">Imágenes 3D fotorrealistas y aprobación del cliente.</div></div>
+      <div class="tl-i anim d3"><span class="tl-dot"></span><div class="tl-w">Semana 5</div><div class="tl-t">Documentación técnica y entrega final.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 NOTAS ============ -->
+<section id="notas">
+  <div class="wrap">
+    <p class="snum anim">08 — Notas importantes</p>
+    <h2 class="anim">Condiciones generales</h2>
+    <ul class="notes">
+      <li class="anim">Los honorarios cubren exclusivamente el diseño interior. Costos de construcción, materiales, mobiliario, contratistas y proveedores son responsabilidad del cliente y no están incluidos.</li>
+      <li class="anim">Los tiempos de entrega pueden variar según el proceso de aprobación y toma de decisiones del cliente.</li>
+      <li class="anim">Se incluyen dos rondas de correcciones mayores. Ajustes significativos adicionales podrán generar costos a convenir.</li>
+      <li class="anim">Los planos de mobiliario y carpintería se entregan con especificaciones generales de diseño, materialidad y dimensiones. El desarrollo de los detalles constructivos de fabricación corresponde al contratista o taller de carpintería.</li>
+      <li class="anim">El descuento aplicado es especial para este proyecto y no constituye tarifa de referencia para trabajos futuros.</li>
+      <li class="anim">La supervisión y el acompañamiento de obra no están incluidos en esta propuesta. Se cotizan por separado si se requieren.</li>
+      <li class="anim">Los valores están expresados en pesos colombianos (COP) y no incluyen impuestos adicionales de ser aplicables.</li>
+    </ul>
+    <div class="callout anim">
+      <p><b>Validez.</b> Esta propuesta tiene una validez de 30 días calendario a partir de su fecha de emisión — 20 de agosto de 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <svg class="foot-mark" viewBox="0 0 1586.49 128.91" xmlns="http://www.w3.org/2000/svg" aria-label="brixel.studio">
+      <g fill="#fff">
+      <path d="M256.81,49.97c-3.54,2.93-6.52,6.08-8.95,9.45-2.43,3.37-4.37,6.63-5.8,9.78-.24.54-.45,1.04-.66,1.56v-28.16h-39.78v81.22h39.78v-39.7c1.98-1.36,4.58-2.74,7.79-4.14,4.2-1.82,9.28-3.4,15.25-4.72,5.97-1.33,12.54-1.99,19.72-1.99v-33.15c-5.53,0-10.58.91-15.17,2.73-4.59,1.82-8.65,4.2-12.18,7.13Z"/>
+      <rect x="297.74" y="42.6" width="39.78" height="81.22"/><rect x="296.58" width="42.1" height="24.86"/>
+      <polygon points="505.26 42.6 456.53 42.6 428.62 64.7 398.19 42.6 349.46 42.6 404.3 83.29 349.46 123.81 398.19 123.81 427.13 100.05 459.85 123.81 508.58 123.81 451.37 81.4 505.26 42.6"/>
+      <path d="M655.26,59.09c-5.08-6.68-12.99-11.52-23.7-14.5-10.72-2.98-24.48-4.48-41.27-4.48s-31.72,1.38-43.76,4.14c-12.05,2.76-21.24,7.32-27.6,13.67-6.35,6.36-9.53,14.84-9.53,25.44s3.26,19.23,9.78,25.53c6.52,6.3,15.83,10.77,27.93,13.43,12.1,2.65,26.49,3.98,43.18,3.98,15.8,0,28.81-1.3,39.03-3.9,10.22-2.59,18.01-6.27,23.37-11.02,5.36-4.75,8.54-10.33,9.53-16.74h-39.12c-1.22,2.43-4.89,4.31-11.02,5.63-6.13,1.33-13.95,1.99-23.45,1.99s-16.49-.75-21.96-2.24c-5.47-1.49-9.5-3.45-12.1-5.88-2.6-2.43-4.17-5.08-4.72-7.96h112.71c.22-11.38-2.21-20.41-7.29-27.1ZM551.01,75.58c1.1-2.54,4.72-5.08,10.86-7.62,6.13-2.54,15.05-3.81,26.77-3.81s20.61,1.19,26.02,3.56c5.41,2.38,8.51,5,9.28,7.87h-72.93Z"/>
+      <rect x="678.3" y="9.45" width="39.78" height="114.37"/></g>
+      <polygon fill="#c9a84c" points="729.45 123.78 757.93 123.78 763.83 98.76 735.35 98.76 729.45 123.78"/>
+      <g fill="#fff">
+      <path d="M890.27,80.89c-4.92-1.44-10.44-2.38-16.57-2.82-6.13-.44-12.41-.66-18.81-.66-9.28,0-16.33-.17-21.13-.5-4.81-.33-8.07-.91-9.78-1.74-1.72-.83-2.57-2.07-2.57-3.73,0-2.54,1.74-4.39,5.22-5.55s9.09-1.74,16.82-1.74c8.18,0,13.95.55,17.32,1.66,3.37,1.11,5.66,3.09,6.88,5.97h35.64c.11-5.97-1.93-11.32-6.13-16.08-4.2-4.75-10.72-8.54-19.56-11.35-8.84-2.82-20.22-4.23-34.15-4.23-8.4,0-16.44.44-24.12,1.33-7.68.89-14.45,2.35-20.31,4.39-5.86,2.05-10.5,4.86-13.92,8.45-3.43,3.59-5.14,8.04-5.14,13.34,0,4.31,1.16,7.9,3.48,10.77,2.32,2.88,5.69,5.11,10.11,6.71,4.42,1.6,9.81,2.76,16.16,3.48,6.35.72,13.56,1.08,21.63,1.08,8.51,0,15.19.08,20.06.25,4.86.17,8.31.61,10.36,1.33,2.04.72,3.07,2.02,3.07,3.9,0,1.22-.47,2.38-1.41,3.48-.94,1.11-2.93,1.99-5.97,2.65-3.04.66-7.71.99-14.01.99-8.18,0-14.45-.55-18.81-1.66-4.37-1.1-7.32-3.09-8.87-5.97h-36.63c-.22,2.21.08,4.72.91,7.54.83,2.82,2.54,5.64,5.14,8.45,2.59,2.82,6.32,5.42,11.19,7.79,4.86,2.38,11.13,4.28,18.81,5.72,7.68,1.44,17.1,2.16,28.26,2.16,12.82,0,23.92-.89,33.32-2.65,9.39-1.77,16.66-4.61,21.8-8.54,5.14-3.92,7.71-9.03,7.71-15.33,0-5.19-1.44-9.28-4.31-12.27-2.87-2.98-6.77-5.19-11.68-6.63Z"/>
+      <polygon points="984 17.74 944.22 17.74 944.22 42.6 915.38 42.6 915.38 67.46 944.22 67.46 944.22 123.81 984 123.81 984 67.46 1012.84 67.46 1012.84 42.6 984 42.6 984 17.74"/>
+      <path d="M1134.33,83.55c-2.15,2.03-4.88,4.12-8.2,6.28-4.26,2.76-9.17,5.11-14.75,7.04-5.58,1.93-11.63,2.9-18.15,2.9-6.96,0-12.65-.64-17.07-1.91-4.42-1.27-7.65-3.56-9.7-6.88-2.05-3.31-3.07-8.01-3.07-14.09v-34.31h-39.78v38.45c0,8.73,1.43,16,4.31,21.8,2.87,5.8,6.85,10.42,11.94,13.84,5.08,3.43,10.88,5.88,17.4,7.38,6.52,1.49,13.43,2.24,20.72,2.24s13.92-.89,19.89-2.65c5.97-1.77,11.27-4.06,15.91-6.88,4.64-2.82,8.56-5.88,11.77-9.2,3.2-3.31,5.72-6.52,7.54-9.61.46-.79.88-1.55,1.24-2.28v28.14h39.78V42.6h-39.78v40.95Z"/>
+      <path d="M1310.52,67.91c-.36-.77-.74-1.52-1.16-2.27-2.98-5.3-7.29-9.86-12.93-13.67-5.63-3.81-12.43-6.74-20.39-8.79-7.96-2.04-16.91-3.07-26.85-3.07-11.93,0-22.54,1.6-31.82,4.81-9.28,3.21-16.6,8.01-21.96,14.42-5.36,6.41-8.04,14.37-8.04,23.87s2.68,16.8,8.04,23.2c5.36,6.41,12.68,11.3,21.96,14.67,9.28,3.37,19.89,5.06,31.82,5.06,9.94,0,18.9-1.02,26.85-3.07s14.75-4.97,20.39-8.78c5.64-3.81,9.94-8.34,12.93-13.59.45-.79.85-1.6,1.24-2.42.11,4.74.36,9.15.75,13.19.55,5.69,1.05,9.81,1.49,12.35h37.46V9.45h-39.78v58.46ZM1304.14,93.98c-4.26,2.54-9.89,4.34-16.91,5.39-7.02,1.05-14.73,1.57-23.12,1.57-7.52,0-13.92-.66-19.23-1.99-5.3-1.33-9.34-3.32-12.1-5.97-2.76-2.65-4.14-5.91-4.14-9.78,0-5.97,3.09-10.41,9.28-13.34,6.19-2.93,14.92-4.39,26.19-4.39,8.4,0,16.1.5,23.12,1.49,7.02.99,12.65,2.76,16.91,5.3,4.25,2.54,6.38,6.19,6.38,10.94s-2.13,8.23-6.38,10.77Z"/>
+      <rect x="1372.68" width="42.1" height="24.86"/><rect x="1373.84" y="42.6" width="39.78" height="81.22"/>
+      <path d="M1577.87,58.43c-5.75-6.35-14.39-10.99-25.94-13.92-11.55-2.93-26.05-4.39-43.51-4.39s-32.18,1.47-43.84,4.39c-11.66,2.93-20.39,7.57-26.19,13.92-5.8,6.35-8.7,14.67-8.7,24.94s2.9,18.56,8.7,24.86c5.8,6.3,14.53,10.88,26.19,13.76,11.66,2.87,26.27,4.31,43.84,4.31s31.96-1.44,43.51-4.31c11.55-2.87,20.19-7.46,25.94-13.76,5.74-6.3,8.62-14.59,8.62-24.86s-2.87-18.59-8.62-24.94ZM1541.58,93.9c-2.88,2.82-7.07,4.92-12.6,6.3-5.53,1.38-12.38,2.07-20.55,2.07s-15.28-.69-20.97-2.07c-5.69-1.38-9.97-3.48-12.84-6.3-2.88-2.82-4.31-6.32-4.31-10.53s1.46-7.87,4.39-10.69c2.93-2.82,7.24-4.94,12.93-6.38,5.69-1.43,12.62-2.15,20.8-2.15s15.19.72,20.72,2.15c5.52,1.44,9.7,3.59,12.51,6.47,2.82,2.87,4.23,6.41,4.23,10.61s-1.44,7.71-4.31,10.53Z"/>
+      <path d="M171.24,72.17c-5.84-1.74-12.66-2.86-20.45-3.36-7.79-.49-16.25-.75-25.38-.75,0,0,21.82.16,30.76-1.4,8.95-1.56,15.82-4.32,20.63-8.31,4.81-3.98,7.21-9.71,7.21-17.17,0-11.7-5.6-19.91-16.8-24.64-11.2-4.73-28.6-7.09-52.21-7.09H0v119.47h124.14c13.39,0,25.01-1.21,34.87-3.64,9.86-2.43,17.46-6.13,22.82-11.11,5.35-4.98,8.03-11.32,8.03-19.04,0-6.35-1.64-11.32-4.93-14.93-3.29-3.61-7.85-6.28-13.69-8.03ZM45.64,44.54h70.83c6.45,0,11.11.59,13.97,1.77,2.86,1.18,4.29,3.2,4.29,6.07s-1.43,4.73-4.29,5.97c-2.86,1.25-7.52,1.87-13.97,1.87H45.64v-15.68ZM138.11,91.95c-2.86,1.25-7.52,1.87-13.97,1.87H45.64v-15.68h78.5c4.26,0,7.73.28,10.41.84,2.68.56,4.66,1.4,5.93,2.52,1.28,1.12,1.92,2.61,1.92,4.48,0,2.74-1.43,4.73-4.29,5.97Z"/>
+      </g>
+    </svg>
+
+    <div class="foot-grid">
+      <div><div class="fg-k">Estudio</div><div class="fg-v">Brixel Studio</div></div>
+      <div><div class="fg-k">Dirección</div><div class="fg-v">Luis Carlos Álvarez — Arquitecto</div></div>
+      <div><div class="fg-k">Teléfono</div><div class="fg-v"><a href="tel:+573006516374">+57 300 651 6374</a></div></div>
+      <div><div class="fg-k">Correo</div><div class="fg-v"><a href="mailto:info@brixel.studio">info@brixel.studio</a></div></div>
+      <div><div class="fg-k">Web</div><div class="fg-v"><a href="https://brixel.studio">brixel.studio</a></div></div>
+      <div><div class="fg-k">Ubicación</div><div class="fg-v">Medellín, Colombia</div></div>
+    </div>
+
+    <div class="sign">
+      <div>Firma de aceptación</div>
+      <div>Fecha</div>
+    </div>
+
+    <div class="colophon">
+      <span>Cotización · Diseño interior · Carlos Andrés Gómez</span>
+      <span>Documento privado · 20 · 08 · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.anim').forEach(el=>io.observe(el));
+
+const barIo = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.bar-fill').forEach((b,i)=>{
+        setTimeout(()=>{ b.style.width = b.dataset.w + '%'; }, i*140);
+      });
+      barIo.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.bars').forEach(el=>barIo.observe(el));
+
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+const navIo = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-45% 0px -55% 0px'});
+secs.forEach(s=>navIo.observe(s));
+
+window.addEventListener('beforeprint',()=>{
+  document.querySelectorAll('.bar-fill').forEach(b=>b.style.width=b.dataset.w+'%');
+});
+</script>
+</body>
+</html>
